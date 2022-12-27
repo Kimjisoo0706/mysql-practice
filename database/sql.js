@@ -1,11 +1,12 @@
 const mysql = require("mysql2");
+const config = require("../config");
 
 const pool = mysql.createPool(
   process.env.JAWSDB_URL ?? {
-    host: "localhost",
-    user: "root",
-    database: "mydatabase",
-    password: "kjs",
+    host: config.db.host,
+    user: config.db.user,
+    database: config.db.database,
+    password: config.db.password,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0,
